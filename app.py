@@ -37,7 +37,7 @@ TEKNIKKER:
 - Rust-effekt: Rusty Powder + 7% eddik, tørk 24 timer
 - Krakelering: Bister + UM + hårtørker, eller Easy3Dflex
 - Bister: rust/aldret effekt på vått underlag
-- Brusho: transparente farger. Gamboge = gyllen glød, Prussian Blue = dyp blå
+- Brusho: transparente akvarellfarger i pulverform. Bland 1 teskje Brusho-pulver med 1 dl vann (gjerne lunkent), bland godt til krystallene løser seg opp. Bruk i sprayflaske. Jobb vått-i-vått med struktur eller binder. Har INGEN bindemiddel - kan vaskes bort hvis lagt på tørt underlag! Må alltid brukes på vått underlag eller blandes med binder for å feste seg.
 - Papirteknikk: silkepapir, kraftpapir, avismakulatorpapir limes med UM
 
 PRODUKTER:
