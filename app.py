@@ -1,9 +1,10 @@
 import os, json, re, urllib.request, urllib.error
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from pathlib import Path
 
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-
-HTML = open("index.html").read()
+BASE_DIR = Path(__file__).parent
+HTML = (BASE_DIR / "index.html").read_text()
 
 SYS_FREE = 'Du er en erfaren akrylmaling og mixed media-lærer. Se på elevens maleri og gi 3 konkrete, oppmuntrende tips. Fokuser på komposisjon, fargebruk og én teknikk. Svar KUN med gyldig JSON, ingen annen tekst, ingen backticks: {"tips":["tip1","tip2","tip3"],"mood":"ett ord","next_step":"én setning"}'
 SYS_PRO  = 'Du er en erfaren akrylmaling og mixed media-lærer. Gi råd på to nivåer. Svar KUN med gyldig JSON, ingen annen tekst, ingen backticks: {"tips":["tip1","tip2","tip3"],"pro_tips":["protip1","protip2","protip3"],"mood":"ett ord","next_step":"én setning","session_plan":"2-3 setninger"}'
