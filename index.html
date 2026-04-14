@@ -3,19 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malerkompis</title>
+<title>Malerkompis – Kristin Oksavik</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; min-height: 100vh; padding: 2rem 1rem; }
-  .app { max-width: 480px; margin: 0 auto; }
-  .logo { font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
-  .tagline { font-size: 13px; color: #888; margin-bottom: 1.5rem; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; min-height: 100vh; }
+  .app { max-width: 480px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+  .header { text-align: center; margin-bottom: 1.5rem; }
+  .logo { font-size: 22px; font-weight: 600; color: #1a1a1a; }
+  .tagline { font-size: 13px; color: #888; margin-top: 2px; }
+
+  .tabs { display: flex; gap: 0; margin-bottom: 1.5rem; background: #fff; border-radius: 10px; border: 0.5px solid #e0dfd8; overflow: hidden; }
+  .tab { flex: 1; padding: 11px 0; font-size: 13px; font-weight: 500; color: #888; cursor: pointer; text-align: center; border: none; background: none; transition: all 0.15s; }
+  .tab.active { background: #7F77DD; color: white; }
+
   .level-bar { display: flex; gap: 8px; margin-bottom: 1.5rem; }
   .level-btn { flex: 1; padding: 9px 0; font-size: 13px; font-weight: 500; border-radius: 8px; border: 0.5px solid #d0cfc8; background: #fff; color: #888; cursor: pointer; }
   .level-btn.active { background: #AFA9EC; border-color: #7F77DD; color: #26215C; }
   .badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 6px; margin-left: 5px; font-weight: 500; }
   .badge-free { background: #EAF3DE; color: #3B6D11; }
   .badge-pro { background: #EEEDFE; color: #3C3489; }
+
+  /* ANALYSE TAB */
   .upload-area { border: 1.5px dashed #c0bfb8; border-radius: 12px; padding: 2.5rem 1rem; text-align: center; cursor: pointer; background: #fff; margin-bottom: 0.5rem; transition: border-color 0.15s; }
   .upload-area:hover { border-color: #7F77DD; }
   .upload-area.has-image { padding: 0; overflow: hidden; border-style: solid; border-color: #7F77DD; }
@@ -26,6 +34,24 @@
   .analyze-btn { width: 100%; padding: 13px; font-size: 15px; font-weight: 500; background: #7F77DD; color: white; border: none; border-radius: 12px; cursor: pointer; margin: 0.75rem 0 1.5rem; }
   .analyze-btn:hover:not(:disabled) { background: #534AB7; }
   .analyze-btn:disabled { background: #e0dfd8; color: #aaa; cursor: not-allowed; }
+
+  /* CHAT TAB */
+  .chat-wrap { display: flex; flex-direction: column; height: 460px; background: #fff; border-radius: 12px; border: 0.5px solid #e0dfd8; overflow: hidden; margin-bottom: 1rem; }
+  .chat-messages { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 10px; }
+  .msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.6; }
+  .msg.kristin { background: #EEEDFE; color: #26215C; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .msg.user { background: #7F77DD; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .msg.system { background: #f5f4f0; color: #888; align-self: center; font-size: 12px; text-align: center; border-radius: 8px; }
+  .chat-input-row { display: flex; gap: 8px; padding: 12px; border-top: 0.5px solid #e0dfd8; }
+  .chat-input { flex: 1; padding: 10px 14px; font-size: 14px; border: 0.5px solid #d0cfc8; border-radius: 20px; background: #fafaf8; color: #1a1a1a; outline: none; }
+  .chat-input:focus { border-color: #7F77DD; }
+  .send-btn { width: 40px; height: 40px; background: #7F77DD; border: none; border-radius: 50%; cursor: pointer; color: white; font-size: 16px; flex-shrink: 0; }
+  .send-btn:hover { background: #534AB7; }
+  .send-btn:disabled { background: #e0dfd8; cursor: not-allowed; }
+  .questions-left { font-size: 12px; color: #aaa; text-align: center; padding: 4px 0; }
+  .questions-left.warning { color: #BA7517; }
+
+  /* SHARED */
   .result-card { background: #fff; border: 0.5px solid #e0dfd8; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
   .result-title { font-size: 11px; font-weight: 500; color: #aaa; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
   .tip-item { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
@@ -33,98 +59,219 @@
   .tip-dot.pro { background: #534AB7; }
   .tip-text { font-size: 14px; color: #1a1a1a; line-height: 1.65; }
   .locked-card { background: #fafaf8; border: 0.5px solid #e0dfd8; border-radius: 12px; padding: 1.25rem; text-align: center; margin-bottom: 1rem; }
-  .unlock-btn { padding: 8px 20px; background: #EEEDFE; color: #3C3489; border: 0.5px solid #AFA9EC; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; margin-top: 10px; }
+  .unlock-btn { padding: 9px 24px; background: #7F77DD; color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; margin-top: 10px; }
+  .unlock-btn:hover { background: #534AB7; }
   .loading { text-align: center; padding: 2rem; }
-  .spinner { width: 28px; height: 28px; border: 2px solid #e0dfd8; border-top-color: #7F77DD; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
+  .spinner { width: 24px; height: 24px; border: 2px solid #e0dfd8; border-top-color: #7F77DD; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 10px; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .error-card { background: #FCEBEB; border: 0.5px solid #F09595; border-radius: 12px; padding: 1rem 1.25rem; font-size: 13px; color: #791F1F; margin-bottom: 1rem; line-height: 1.6; }
+  .error-card { background: #FCEBEB; border: 0.5px solid #F09595; border-radius: 12px; padding: 1rem 1.25rem; font-size: 13px; color: #791F1F; margin-bottom: 1rem; }
+
+  .section { display: none; }
+  .section.active { display: block; }
 </style>
 </head>
 <body>
 <div class="app">
-  <div class="logo">🎨 Malerkompis</div>
-  <div class="tagline">Last opp maleriet ditt og få tips — med det samme</div>
+  <div class="header">
+    <div class="logo">🎨 Malerkompis</div>
+    <div class="tagline">Din AI-lærer — av Kristin Oksavik</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('analyse')">Analyser maleri</button>
+    <button class="tab" onclick="switchTab('chat')">Chat med Kristin</button>
+  </div>
+
   <div class="level-bar">
     <button class="level-btn active" id="btn-free" onclick="setLevel('free')">Gratis <span class="badge badge-free">Level 1</span></button>
     <button class="level-btn" id="btn-pro" onclick="setLevel('pro')">Pro <span class="badge badge-pro">Level 2</span></button>
   </div>
-  <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()">
-    <div id="upload-placeholder">
-      <div style="font-size:36px;margin-bottom:10px">🖼</div>
-      <div style="font-size:14px;color:#888">Trykk for å laste opp bilde av maleriet</div>
-      <div style="font-size:12px;color:#bbb;margin-top:4px">JPG eller PNG</div>
+
+  <!-- ANALYSE -->
+  <div id="tab-analyse" class="section active">
+    <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()">
+      <div id="upload-placeholder">
+        <div style="font-size:36px;margin-bottom:10px">🖼</div>
+        <div style="font-size:14px;color:#888">Trykk for å laste opp bilde av maleriet</div>
+        <div style="font-size:12px;color:#bbb;margin-top:4px">JPG eller PNG</div>
+      </div>
+      <img id="preview-img" alt="Maleriet ditt" />
+      <input type="file" id="file-input" accept="image/*" onchange="handleFile(event)" />
     </div>
-    <img id="preview-img" alt="Maleriet ditt" />
-    <input type="file" id="file-input" accept="image/*" onchange="handleFile(event)" />
+    <div class="change-link" id="change-link" onclick="document.getElementById('file-input').click()">Bytt bilde</div>
+    <div class="info-bar" id="info-bar"></div>
+    <button class="analyze-btn" id="analyze-btn" onclick="analyze()" disabled>Analyser maleriet</button>
+    <div id="result-area"></div>
   </div>
-  <div class="change-link" id="change-link" onclick="document.getElementById('file-input').click()">Bytt bilde</div>
-  <div class="info-bar" id="info-bar"></div>
-  <button class="analyze-btn" id="analyze-btn" onclick="analyze()" disabled>Analyser maleriet</button>
-  <div id="result-area"></div>
+
+  <!-- CHAT -->
+  <div id="tab-chat" class="section">
+    <div class="chat-wrap">
+      <div class="chat-messages" id="chat-messages">
+        <div class="msg kristin">Hei! Jeg er her for å hjelpe deg videre med maleriet ditt 🎨 Spør meg om farger, teknikker, produkter — eller fortell meg hva du står fast på!</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Still et spørsmål..." onkeydown="if(event.key==='Enter')sendChat()" />
+        <button class="send-btn" id="send-btn" onclick="sendChat()">↑</button>
+      </div>
+    </div>
+    <div class="questions-left" id="questions-left">5 gratis spørsmål igjen</div>
+    <div id="chat-locked" style="display:none">
+      <div class="locked-card">
+        <div style="font-size:24px;margin-bottom:8px">🔒</div>
+        <div style="font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:6px">Du har brukt dine 5 gratis spørsmål</div>
+        <div style="font-size:13px;color:#888;margin-bottom:4px">Oppgrader til Level 2 for ubegrenset chat med Kristin — farger, teknikker, produkter og personlige råd.</div>
+        <button class="unlock-btn" onclick="setLevel('pro')">Oppgrader til Pro ↗</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 <script>
-let currentLevel = 'free', imageBase64 = null;
+let currentLevel = 'free';
+let imageBase64 = null;
+let freeQuestionsLeft = parseInt(localStorage.getItem('freeQ') || '5');
+let chatHistory = [];
+
+window.onload = () => { updateQuestionsUI(); };
+
+function switchTab(tab) {
+  document.getElementById('tab-analyse').classList.toggle('active', tab === 'analyse');
+  document.getElementById('tab-chat').classList.toggle('active', tab === 'chat');
+  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', (i === 0 && tab === 'analyse') || (i === 1 && tab === 'chat')));
+}
+
 function setLevel(l) {
   currentLevel = l;
-  document.getElementById('btn-free').classList.toggle('active', l==='free');
-  document.getElementById('btn-pro').classList.toggle('active', l==='pro');
+  document.getElementById('btn-free').classList.toggle('active', l === 'free');
+  document.getElementById('btn-pro').classList.toggle('active', l === 'pro');
+  if (l === 'pro') updateQuestionsUI();
 }
+
+function updateQuestionsUI() {
+  const ql = document.getElementById('questions-left');
+  const cl = document.getElementById('chat-locked');
+  const ci = document.getElementById('chat-input');
+  const sb = document.getElementById('send-btn');
+  if (currentLevel === 'pro') {
+    ql.textContent = 'Ubegrenset chat — Pro';
+    ql.className = 'questions-left';
+    cl.style.display = 'none';
+    ci.disabled = false; sb.disabled = false;
+  } else if (freeQuestionsLeft <= 0) {
+    ql.textContent = '';
+    cl.style.display = 'block';
+    ci.disabled = true; sb.disabled = true;
+  } else {
+    ql.textContent = freeQuestionsLeft + ' gratis spørsmål igjen';
+    ql.className = 'questions-left' + (freeQuestionsLeft === 1 ? ' warning' : '');
+    cl.style.display = 'none';
+    ci.disabled = false; sb.disabled = false;
+  }
+}
+
 function compressImage(file, cb) {
-  const MAX=1024, Q=0.82, url=URL.createObjectURL(file), img=new Image();
+  const MAX = 1024, Q = 0.82, url = URL.createObjectURL(file), img = new Image();
   img.onload = () => {
     URL.revokeObjectURL(url);
-    let w=img.width, h=img.height;
-    if(w>MAX||h>MAX){ if(w>h){h=Math.round(h*MAX/w);w=MAX;}else{w=Math.round(w*MAX/h);h=MAX;} }
-    const c=document.createElement('canvas'); c.width=w; c.height=h;
-    c.getContext('2d').drawImage(img,0,0,w,h);
-    const d=c.toDataURL('image/jpeg',Q);
-    cb(d.split(',')[1], Math.round(d.length*0.75/1024), w, h);
+    let w = img.width, h = img.height;
+    if (w > MAX || h > MAX) { if (w > h) { h = Math.round(h * MAX / w); w = MAX; } else { w = Math.round(w * MAX / h); h = MAX; } }
+    const c = document.createElement('canvas'); c.width = w; c.height = h;
+    c.getContext('2d').drawImage(img, 0, 0, w, h);
+    const d = c.toDataURL('image/jpeg', Q);
+    cb(d.split(',')[1], Math.round(d.length * 0.75 / 1024), w, h);
   };
-  img.onerror=()=>{URL.revokeObjectURL(url);cb(null);};
-  img.src=url;
+  img.onerror = () => { URL.revokeObjectURL(url); cb(null); };
+  img.src = url;
 }
+
 function handleFile(e) {
-  const file=e.target.files[0]; if(!file) return;
-  document.getElementById('info-bar').textContent='Komprimerer...';
-  compressImage(file,(b64,kb,w,h)=>{
-    if(!b64){document.getElementById('result-area').innerHTML='<div class="error-card">Kunne ikke lese bildet.</div>';return;}
-    imageBase64=b64;
-    document.getElementById('info-bar').textContent=w+'×'+h+'px · '+kb+' KB';
-    const img=document.getElementById('preview-img');
-    img.src='data:image/jpeg;base64,'+b64; img.style.display='block';
-    document.getElementById('upload-placeholder').style.display='none';
+  const file = e.target.files[0]; if (!file) return;
+  document.getElementById('info-bar').textContent = 'Komprimerer...';
+  compressImage(file, (b64, kb, w, h) => {
+    if (!b64) { document.getElementById('result-area').innerHTML = '<div class="error-card">Kunne ikke lese bildet.</div>'; return; }
+    imageBase64 = b64;
+    document.getElementById('info-bar').textContent = w + '×' + h + 'px · ' + kb + ' KB';
+    const img = document.getElementById('preview-img');
+    img.src = 'data:image/jpeg;base64,' + b64; img.style.display = 'block';
+    document.getElementById('upload-placeholder').style.display = 'none';
     document.getElementById('upload-area').classList.add('has-image');
-    document.getElementById('change-link').style.display='block';
-    document.getElementById('analyze-btn').disabled=false;
+    document.getElementById('change-link').style.display = 'block';
+    document.getElementById('analyze-btn').disabled = false;
   });
 }
+
 async function analyze() {
-  if(!imageBase64) return;
-  const btn=document.getElementById('analyze-btn'); btn.disabled=true;
-  const area=document.getElementById('result-area');
-  area.innerHTML='<div class="loading"><div class="spinner"></div><div style="font-size:13px;color:#888">Analyserer maleriet ditt...</div></div>';
+  if (!imageBase64) return;
+  const btn = document.getElementById('analyze-btn'); btn.disabled = true;
+  const area = document.getElementById('result-area');
+  area.innerHTML = '<div class="loading"><div class="spinner"></div><div style="font-size:13px;color:#888">Kristin ser på maleriet ditt...</div></div>';
   try {
-    const resp=await fetch('/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:imageBase64,level:currentLevel})});
-    if(!resp.ok){const t=await resp.text();throw new Error('Feil '+resp.status+': '+t.slice(0,120));}
-    const data=await resp.json();
-    if(data.error) throw new Error(data.error);
+    const resp = await fetch('/analyze', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ image: imageBase64, level: currentLevel }) });
+    if (!resp.ok) throw new Error('Feil ' + resp.status);
+    const data = await resp.json();
+    if (data.error) throw new Error(data.error);
     renderResult(data);
-  } catch(err){area.innerHTML='<div class="error-card">'+err.message+'</div>';}
-  btn.disabled=false;
+  } catch (err) { area.innerHTML = '<div class="error-card">' + err.message + '</div>'; }
+  btn.disabled = false;
 }
-function renderResult(d) {
-  let html='<div class="result-card"><div class="result-title">Stemning <span style="font-size:12px;color:#534AB7;background:#EEEDFE;padding:2px 8px;border-radius:6px;margin-left:4px;font-weight:400">'+(d.mood||'')+'</span></div><div class="result-title" style="margin-top:12px">Tips til deg</div>';
-  (d.tips||[]).forEach(t=>{html+='<div class="tip-item"><div class="tip-dot"></div><div class="tip-text">'+t+'</div></div>';});
-  html+='</div><div class="result-card"><div class="result-title">Neste steg</div><div class="tip-text">'+(d.next_step||'')+'</div></div>';
-  if(currentLevel==='pro'&&d.pro_tips){
-    html+='<div class="result-card"><div class="result-title">Pro-tips <span class="badge badge-pro">Level 2</span></div>';
-    d.pro_tips.forEach(t=>{html+='<div class="tip-item"><div class="tip-dot pro"></div><div class="tip-text">'+t+'</div></div>';});
-    if(d.session_plan) html+='<div style="margin-top:12px;padding-top:12px;border-top:0.5px solid #e0dfd8"><div class="result-title">Plan for neste økt</div><div class="tip-text">'+d.session_plan+'</div></div>';
-    html+='</div>';
-  } else if(currentLevel==='free'){
-    html+='<div class="locked-card"><div style="font-size:24px;margin-bottom:8px">🔒</div><div style="font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:6px">Pro-tips er låst</div><div style="font-size:13px;color:#888">Oppgrader til Level 2 for avanserte mixed media-teknikker og en personlig øktplan.</div><button class="unlock-btn" onclick="setLevel(\'pro\')">Prøv Pro ↗</button></div>';
+
+async function sendChat() {
+  if (currentLevel !== 'pro' && freeQuestionsLeft <= 0) return;
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim(); if (!text) return;
+  input.value = '';
+  document.getElementById('send-btn').disabled = true;
+
+  addMsg(text, 'user');
+  chatHistory.push({ role: 'user', content: text });
+
+  if (currentLevel === 'free') {
+    freeQuestionsLeft--;
+    localStorage.setItem('freeQ', freeQuestionsLeft);
+    updateQuestionsUI();
   }
-  document.getElementById('result-area').innerHTML=html;
+
+  const messages = document.getElementById('chat-messages');
+  const typing = document.createElement('div');
+  typing.className = 'msg kristin'; typing.id = 'typing'; typing.textContent = '...';
+  messages.appendChild(typing); messages.scrollTop = messages.scrollHeight;
+
+  try {
+    const resp = await fetch('/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ history: chatHistory, level: currentLevel }) });
+    const data = await resp.json();
+    typing.remove();
+    if (data.error) throw new Error(data.error);
+    addMsg(data.reply, 'kristin');
+    chatHistory.push({ role: 'assistant', content: data.reply });
+  } catch (err) {
+    typing.remove();
+    addMsg('Beklager, noe gikk galt. Prøv igjen!', 'kristin');
+  }
+  document.getElementById('send-btn').disabled = false;
+  updateQuestionsUI();
+}
+
+function addMsg(text, type) {
+  const messages = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + type; div.textContent = text;
+  messages.appendChild(div); messages.scrollTop = messages.scrollHeight;
+}
+
+function renderResult(d) {
+  let html = '<div class="result-card"><div class="result-title">Stemning <span style="font-size:12px;color:#534AB7;background:#EEEDFE;padding:2px 8px;border-radius:6px;margin-left:4px;font-weight:400">' + (d.mood || '') + '</span></div><div class="result-title" style="margin-top:12px">Tips til deg</div>';
+  (d.tips || []).forEach(t => { html += '<div class="tip-item"><div class="tip-dot"></div><div class="tip-text">' + t + '</div></div>'; });
+  html += '</div><div class="result-card"><div class="result-title">Neste steg</div><div class="tip-text">' + (d.next_step || '') + '</div></div>';
+  if (currentLevel === 'pro' && d.pro_tips) {
+    html += '<div class="result-card"><div class="result-title">Pro-tips <span class="badge badge-pro">Level 2</span></div>';
+    d.pro_tips.forEach(t => { html += '<div class="tip-item"><div class="tip-dot pro"></div><div class="tip-text">' + t + '</div></div>'; });
+    if (d.session_plan) html += '<div style="margin-top:12px;padding-top:12px;border-top:0.5px solid #e0dfd8"><div class="result-title">Plan for neste økt</div><div class="tip-text">' + d.session_plan + '</div></div>';
+    html += '</div>';
+  } else if (currentLevel === 'free') {
+    html += '<div class="locked-card"><div style="font-size:24px;margin-bottom:8px">🔒</div><div style="font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:6px">Pro-tips er låst</div><div style="font-size:13px;color:#888">Oppgrader til Level 2 for avanserte mixed media-tips og en personlig øktplan.</div><button class="unlock-btn" onclick="setLevel(\'pro\')">Oppgrader til Pro ↗</button></div>';
+  }
+  document.getElementById('result-area').innerHTML = html;
 }
 </script>
 </body>
