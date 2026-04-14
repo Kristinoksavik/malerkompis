@@ -1,4 +1,4 @@
-mport os, json, re, urllib.request, urllib.error
+import os, json, re, urllib.request, urllib.error
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
@@ -158,5 +158,8 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8765))
+    print(f"Malerkompis kjører på port {port}")
+    HTTPServer(("0.0.0.0", port), Handler).serve_forever()
+= int(os.environ.get("PORT", 8765))
     print(f"Malerkompis kjører på port {port}")
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
