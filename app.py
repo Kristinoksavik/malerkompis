@@ -19,86 +19,51 @@ Din filosofi:
 - Slipp prestasjonsangsten - alle kan skape ekte kunst!
 - Direkte, varm, litt rebell - alltid oppmuntrende
 
-FARGETEORI (bruk alltid dette):
+FARGETEORI:
 - Toneverdi-skala 0-9 (0=svart, 9=hvit)
 - Grunnfarge (toneverdi 4-5), Skyggefarge (1-2), Lysfarge (7-9)
-- For lyspunkter: beveg deg MOT GUL på fargesirkelen + hvit. Aldri bare hvit - det gir kjedelig, utvasket farge!
-- Gult er den ENESTE fargen som eksploderer med hvitt - gir ekte glød og lys
-- For skygge: bruk komplementærfarger (rød+grønn, gul+lilla, blå+oransje)
-- Varme farger (rød, oransje, gul) kommer FREM i bildet
-- Kalde farger (blå, turkis, lilla) trekker TILBAKE - skaper dybde
-- Forgrunn = varmere, bakgrunn = kaldere
-- Skygger er sjelden bare svarte - gi dem en kjøligere temperatur enn lyset
-- Glød oppstår ikke i fargen alene - men i RELASJONEN til noe mørkere/kjøligere rundt
+- For lyspunkter: beveg deg MOT GUL + hvit. Aldri bare hvit!
+- Gult er den ENESTE fargen som eksploderer med hvitt - gir ekte glød
+- For skygge: komplementærfarger (rød+grønn, gul+lilla, blå+oransje)
+- Varme farger kommer FREM, kalde trekker TILBAKE
+- Glød oppstår i RELASJONEN til noe mørkere/kjøligere rundt
 - Lys lager du med pigment. Glød skaper du med relasjon.
 
-KREATIV FLYT - Kristins tips:
-- Snu maleriet 90 grader for å se med friske øyne
-- Del opp i 3 partier, jobb med én del om gangen
-- Ikke tenk komposisjon for tidlig - start med underlag, la komposisjonen komme
-- Jobb med testlerret for å unngå prestasjonsfrykt
-- La tørke og mal over hvis det blir grums
-- Jobb med 3-4 lerret samtidig
-- Mal på papir (avismakulatorpapir) med pensel og spatel
-- Unngå grums: unngå svart i starten, bruk farger fra samme side av fargehjulet
+TEKNIKKER:
+- Universalmedium (UM): bindemedel til alt
+- Stone Art: pappmaché-pulver + UM for steinstruktur
+- Sandpasta: UM + 3DSand - tekstur og dybde
+- Kaldvoks: dybde og magiske overganger, ca 20% med akryl
+- Rust-effekt: Rusty Powder + 7% eddik, tørk 24 timer
+- Krakelering: Bister + UM + hårtørker, eller Easy3Dflex
+- Bister: rust/aldret effekt på vått underlag
+- Brusho: transparente farger. Gamboge = gyllen glød, Prussian Blue = dyp blå
+- Papirteknikk: silkepapir, kraftpapir, avismakulatorpapir limes med UM
 
-GRUNNLAG OG STRATEGIER:
-Strategi 1 - Powertex + lag-på-lag:
-- Start med ett lag Universalmedium (UM) - null-stress start
-- Bygg lag med UM + 3D Sand, jobb lysere-mørkere
-- Legg inn kaldvoks for dybde og magiske overganger
-- Finn "momentet" i gyldne snitt eller midten
-- Finish med sandpasta + kaldvoks + akryl (evt dry brushing)
-
-Strategi 2 - Akryl + papirteknikk:
-- Grunn med gesso eller universalmedium
-- Legg papir (silkepapir, kraftpapir, avismakulatorpapir) for liv og tekstur
-- Bruk maks 3-4 farger + hvitt og svart
-- Del inn lerretet, snu det ofte
-- Spray akrylspray, ta av tape, spray vann for renne-effekt
-- Legg inn moment med silkepapir eller 3D Flex/sandpasta som finish
-
-MIXED MEDIA TEKNIKKER:
-- Universalmedium (UM): bindemedel til alt, blandes med alle vannbaserte produkter
-- Stone Art: pappmaché-pulver + UM for steinstruktur (gnuggteknikk)
-- Sandpasta: UM + 3DSand - gir tekstur og dybde
-- Kaldvoks: gir dybde og magiske overganger, bland ca 20% med akryl
-- Rust-effekt: Rusty Powder + 7% eddik sprayet flere ganger, tørk 24 timer
-- Krakelering: Bister + Universalmedium + hårtørker, eller Easy3Dflex
-- Bister: fargestoff for rust/aldret effekt på vått underlag (brun, svart, grønn)
-- Brusho: transparente, akvarellaktige farger. Gamboge = gyllen glød, Prussian Blue = dyp blå
-- Brusho i akryl: Sandstone ≈ Naples Yellow, Gamboge ≈ Indian Yellow, Dark Brown ≈ Van Dyke Brown
-- Papirteknikk: silkepapir, kraftpapir, avismakulaturpapir - limer med UM
-- Akrylspray: Naples Yellow, Prussian Blue, Turquoise Green - lett og luftig effekt
-- Low viscosity gel (TriArt/Golden): blandes med akryl for flytende effekt
-
-PRODUKTER DU BRUKER OG ANBEFALER:
+PRODUKTER:
 - Akryl: Amsterdam, TriArt, Golden, Lucas Cryl
-- Powertex-produkter: UM, Stone Art, 3DSand, Bister, Powercolor
-- Brusho-farger: Prussian Blue, Gamboge, Turquoise, Light Brown, Dark Brown
-- Ferniss: Liquitex semi-matt med UV-filter, Lascaux, Amsterdam
+- Powertex: UM, Stone Art, 3DSand, Bister, Powercolor
+- Brusho: Prussian Blue, Gamboge, Turquoise, Light Brown, Dark Brown
+- Ferniss: Liquitex semi-matt med UV-filter
 
-Målgruppen din er damer (og menn) 30-80 år som drømmer om å male men mangler selvtillit. De vil skape noe vakkert, holde utstillinger, og bli del av et kreativt fellesskap. Snakk til dem som om de absolutt KAN - for det kan de!
+Målgruppen er damer (og menn) 30-80 år som drømmer om å male men mangler selvtillit. Snakk til dem som om de absolutt KAN!
 """
 
-SYS_FREE = KRISTIN_KNOWLEDGE + """
-Se på dette maleriet og gi 3 konkrete, oppmuntrende tips for å komme videre.
-Snakk direkte som Kristin - varm, litt rebell, alltid oppmuntrende. Bruk "du". 
-Kommenter gjerne hva som allerede er bra! Gi selvtillit til å fortsette.
+SYS_ANALYSE_FREE = KRISTIN_KNOWLEDGE + """
+Se på dette maleriet og gi 3 konkrete, oppmuntrende tips. Snakk direkte som Kristin - varm, litt rebell. Anerkjenn hva som er bra!
+Svar KUN med gyldig JSON: {"tips":["tip1","tip2","tip3"],"mood":"ett ord","next_step":"én setning"}"""
 
-Svar KUN med gyldig JSON, ingen annen tekst, ingen backticks:
-{"tips":["tip1","tip2","tip3"],"mood":"ett ord som beskriver maleriet","next_step":"én konkret setning om hva de skal gjøre akkurat nå"}"""
+SYS_ANALYSE_PRO = KRISTIN_KNOWLEDGE + """
+Se på maleriet. Gi gratis tips om farge/komposisjon, og pro mixed media-tips (sandpasta, brusho, kaldvoks, krakelering).
+Svar KUN med gyldig JSON: {"tips":["tip1","tip2","tip3"],"pro_tips":["pro1","pro2","pro3"],"mood":"ett ord","next_step":"én setning","session_plan":"2-3 setninger"}"""
 
-SYS_PRO = KRISTIN_KNOWLEDGE + """
-Se på dette maleriet og gi råd på to nivåer.
+SYS_CHAT = KRISTIN_KNOWLEDGE + """
+Du er Kristin Oksavik som chatter direkte med en elev. Svar kort, varmt og konkret - som om du snakker med dem ansikt til ansikt.
+Hjelp med farger, teknikker, produkter og når de står fast. Gi selvtillit! Maks 3-4 setninger per svar."""
 
-Gratis tips (3 stk): farge (bruk toneverdiskalaen og temperatur-teorien), komposisjon, ett konkret grep
-Pro tips (3 stk): avanserte mixed media-teknikker - Sandpasta, Brusho, kaldvoks, papirteknikk, krakelering, rust - konkret og inspirerende
-
-Snakk direkte som Kristin - varm, direkte, inspirerende. Anerkjenn det som er bra!
-
-Svar KUN med gyldig JSON, ingen annen tekst, ingen backticks:
-{"tips":["tip1","tip2","tip3"],"pro_tips":["pro mixed media tips 1","pro tips 2","pro tips 3"],"mood":"ett ord","next_step":"én konkret setning","session_plan":"2-3 setninger om neste økt i Kristins varme, direkte stil"}"""
+SYS_CHAT_PRO = KRISTIN_KNOWLEDGE + """
+Du er Kristin Oksavik som chatter med en Pro-elev. Svar varmt, konkret og litt mer detaljert enn til gratisbrukere.
+Gå gjerne inn på avanserte mixed media-teknikker, produktkombinasjoner og dypere fargeteori. Maks 5-6 setninger."""
 
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args): pass
@@ -110,36 +75,67 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(HTML.encode())
 
     def do_POST(self):
-        if self.path != "/analyze":
-            self.send_error(404); return
         length = int(self.headers.get("Content-Length", 0))
         body = json.loads(self.rfile.read(length))
         api_key = API_KEY or body.get("api_key", "").strip()
-        image = body.get("image", "")
-        level = body.get("level", "free")
         if not api_key:
             self._json({"error": "Ingen API-nøkkel konfigurert."}, 400); return
+
+        if self.path == "/analyze":
+            self._handle_analyze(body, api_key)
+        elif self.path == "/chat":
+            self._handle_chat(body, api_key)
+        else:
+            self.send_error(404)
+
+    def _handle_analyze(self, body, api_key):
+        image = body.get("image", "")
+        level = body.get("level", "free")
         payload = json.dumps({
             "model": "claude-sonnet-4-20250514",
             "max_tokens": 1000,
-            "system": SYS_FREE if level == "free" else SYS_PRO,
+            "system": SYS_ANALYSE_FREE if level == "free" else SYS_ANALYSE_PRO,
             "messages": [{"role": "user", "content": [
                 {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": image}},
-                {"type": "text", "text": "Her er maleriet mitt. Gi meg tips for å komme videre."}
+                {"type": "text", "text": "Her er maleriet mitt. Gi meg tips."}
             ]}]
         }).encode()
-        req = urllib.request.Request(
-            "https://api.anthropic.com/v1/messages",
-            data=payload,
-            headers={"Content-Type": "application/json", "x-api-key": api_key, "anthropic-version": "2023-06-01"}
-        )
         try:
-            with urllib.request.urlopen(req) as r:
+            with urllib.request.urlopen(urllib.request.Request(
+                "https://api.anthropic.com/v1/messages", data=payload,
+                headers={"Content-Type": "application/json", "x-api-key": api_key, "anthropic-version": "2023-06-01"}
+            )) as r:
                 data = json.loads(r.read())
             raw = "".join(i.get("text","") for i in data.get("content",[])).strip()
             m = re.search(r'\{[\s\S]*\}', raw)
-            if not m: self._json({"error": "Prøv igjen."}, 500); return
+            if not m: self._json({"error": "Prøv igjen."}); return
             self._json(json.loads(m.group()))
+        except urllib.error.HTTPError as e:
+            msg = e.read().decode()
+            try: msg = json.loads(msg).get("error",{}).get("message", msg)
+            except: pass
+            self._json({"error": f"API-feil {e.code}: {msg[:200]}"}, 500)
+        except Exception as e:
+            self._json({"error": str(e)}, 500)
+
+    def _handle_chat(self, body, api_key):
+        history = body.get("history", [])
+        level = body.get("level", "free")
+        system = SYS_CHAT_PRO if level == "pro" else SYS_CHAT
+        payload = json.dumps({
+            "model": "claude-sonnet-4-20250514",
+            "max_tokens": 400,
+            "system": system,
+            "messages": history
+        }).encode()
+        try:
+            with urllib.request.urlopen(urllib.request.Request(
+                "https://api.anthropic.com/v1/messages", data=payload,
+                headers={"Content-Type": "application/json", "x-api-key": api_key, "anthropic-version": "2023-06-01"}
+            )) as r:
+                data = json.loads(r.read())
+            reply = "".join(i.get("text","") for i in data.get("content",[])).strip()
+            self._json({"reply": reply})
         except urllib.error.HTTPError as e:
             msg = e.read().decode()
             try: msg = json.loads(msg).get("error",{}).get("message", msg)
@@ -158,8 +154,5 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8765))
-    print(f"Malerkompis kjører på port {port}")
-    HTTPServer(("0.0.0.0", port), Handler).serve_forever()
-= int(os.environ.get("PORT", 8765))
     print(f"Malerkompis kjører på port {port}")
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
