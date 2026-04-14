@@ -1,3 +1,6 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -11,18 +14,18 @@
   .header { text-align: center; margin-bottom: 1.5rem; }
   .logo { font-size: 22px; font-weight: 600; color: #1a1a1a; }
   .tagline { font-size: 13px; color: #888; margin-top: 2px; }
-
+ 
   .tabs { display: flex; gap: 0; margin-bottom: 1.5rem; background: #fff; border-radius: 10px; border: 0.5px solid #e0dfd8; overflow: hidden; }
   .tab { flex: 1; padding: 11px 0; font-size: 13px; font-weight: 500; color: #888; cursor: pointer; text-align: center; border: none; background: none; transition: all 0.15s; }
   .tab.active { background: #7F77DD; color: white; }
-
+ 
   .level-bar { display: flex; gap: 8px; margin-bottom: 1.5rem; }
   .level-btn { flex: 1; padding: 9px 0; font-size: 13px; font-weight: 500; border-radius: 8px; border: 0.5px solid #d0cfc8; background: #fff; color: #888; cursor: pointer; }
   .level-btn.active { background: #AFA9EC; border-color: #7F77DD; color: #26215C; }
   .badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 6px; margin-left: 5px; font-weight: 500; }
   .badge-free { background: #EAF3DE; color: #3B6D11; }
   .badge-pro { background: #EEEDFE; color: #3C3489; }
-
+ 
   /* ANALYSE TAB */
   .upload-area { border: 1.5px dashed #c0bfb8; border-radius: 12px; padding: 2.5rem 1rem; text-align: center; cursor: pointer; background: #fff; margin-bottom: 0.5rem; transition: border-color 0.15s; }
   .upload-area:hover { border-color: #7F77DD; }
@@ -34,7 +37,7 @@
   .analyze-btn { width: 100%; padding: 13px; font-size: 15px; font-weight: 500; background: #7F77DD; color: white; border: none; border-radius: 12px; cursor: pointer; margin: 0.75rem 0 1.5rem; }
   .analyze-btn:hover:not(:disabled) { background: #534AB7; }
   .analyze-btn:disabled { background: #e0dfd8; color: #aaa; cursor: not-allowed; }
-
+ 
   /* CHAT TAB */
   .chat-wrap { display: flex; flex-direction: column; height: 460px; background: #fff; border-radius: 12px; border: 0.5px solid #e0dfd8; overflow: hidden; margin-bottom: 1rem; }
   .chat-messages { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 10px; }
@@ -50,7 +53,7 @@
   .send-btn:disabled { background: #e0dfd8; cursor: not-allowed; }
   .questions-left { font-size: 12px; color: #aaa; text-align: center; padding: 4px 0; }
   .questions-left.warning { color: #BA7517; }
-
+ 
   /* SHARED */
   .result-card { background: #fff; border: 0.5px solid #e0dfd8; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
   .result-title { font-size: 11px; font-weight: 500; color: #aaa; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
@@ -65,7 +68,7 @@
   .spinner { width: 24px; height: 24px; border: 2px solid #e0dfd8; border-top-color: #7F77DD; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 10px; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .error-card { background: #FCEBEB; border: 0.5px solid #F09595; border-radius: 12px; padding: 1rem 1.25rem; font-size: 13px; color: #791F1F; margin-bottom: 1rem; }
-
+ 
   .section { display: none; }
   .section.active { display: block; }
 </style>
@@ -76,17 +79,17 @@
     <div class="logo">🎨 Malerkompis</div>
     <div class="tagline">Din AI-lærer — av Kristin Oksavik</div>
   </div>
-
+ 
   <div class="tabs">
     <button class="tab active" onclick="switchTab('analyse')">Analyser maleri</button>
     <button class="tab" onclick="switchTab('chat')">Chat med Kristin</button>
   </div>
-
+ 
   <div class="level-bar">
     <button class="level-btn active" id="btn-free" onclick="setLevel('free')">Gratis <span class="badge badge-free">Level 1</span></button>
     <button class="level-btn" id="btn-pro" onclick="setLevel('pro')">Pro <span class="badge badge-pro">Level 2</span></button>
   </div>
-
+ 
   <!-- ANALYSE -->
   <div id="tab-analyse" class="section active">
     <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()">
@@ -103,7 +106,7 @@
     <button class="analyze-btn" id="analyze-btn" onclick="analyze()" disabled>Analyser maleriet</button>
     <div id="result-area"></div>
   </div>
-
+ 
   <!-- CHAT -->
   <div id="tab-chat" class="section">
     <div class="chat-wrap">
@@ -115,39 +118,39 @@
         <button class="send-btn" id="send-btn" onclick="sendChat()">↑</button>
       </div>
     </div>
-    <div class="questions-left" id="questions-left">5 gratis spørsmål igjen</div>
+    <div class="questions-left" id="questions-left">3 gratis spørsmål igjen</div>
     <div id="chat-locked" style="display:none">
       <div class="locked-card">
         <div style="font-size:24px;margin-bottom:8px">🔒</div>
-        <div style="font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:6px">Du har brukt dine 5 gratis spørsmål</div>
+        <div style="font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:6px">Du har brukt dine 3 gratis spørsmål</div>
         <div style="font-size:13px;color:#888;margin-bottom:4px">Oppgrader til Level 2 for ubegrenset chat med Kristin — farger, teknikker, produkter og personlige råd.</div>
         <button class="unlock-btn" onclick="setLevel('pro')">Oppgrader til Pro ↗</button>
       </div>
     </div>
   </div>
 </div>
-
+ 
 <script>
 let currentLevel = 'free';
 let imageBase64 = null;
-let freeQuestionsLeft = parseInt(localStorage.getItem('freeQ') || '5');
+let freeQuestionsLeft = parseInt(localStorage.getItem('freeQ') || '3');
 let chatHistory = [];
-
+ 
 window.onload = () => { updateQuestionsUI(); };
-
+ 
 function switchTab(tab) {
   document.getElementById('tab-analyse').classList.toggle('active', tab === 'analyse');
   document.getElementById('tab-chat').classList.toggle('active', tab === 'chat');
   document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', (i === 0 && tab === 'analyse') || (i === 1 && tab === 'chat')));
 }
-
+ 
 function setLevel(l) {
   currentLevel = l;
   document.getElementById('btn-free').classList.toggle('active', l === 'free');
   document.getElementById('btn-pro').classList.toggle('active', l === 'pro');
   if (l === 'pro') updateQuestionsUI();
 }
-
+ 
 function updateQuestionsUI() {
   const ql = document.getElementById('questions-left');
   const cl = document.getElementById('chat-locked');
@@ -169,7 +172,7 @@ function updateQuestionsUI() {
     ci.disabled = false; sb.disabled = false;
   }
 }
-
+ 
 function compressImage(file, cb) {
   const MAX = 1024, Q = 0.82, url = URL.createObjectURL(file), img = new Image();
   img.onload = () => {
@@ -184,7 +187,7 @@ function compressImage(file, cb) {
   img.onerror = () => { URL.revokeObjectURL(url); cb(null); };
   img.src = url;
 }
-
+ 
 function handleFile(e) {
   const file = e.target.files[0]; if (!file) return;
   document.getElementById('info-bar').textContent = 'Komprimerer...';
@@ -200,7 +203,7 @@ function handleFile(e) {
     document.getElementById('analyze-btn').disabled = false;
   });
 }
-
+ 
 async function analyze() {
   if (!imageBase64) return;
   const btn = document.getElementById('analyze-btn'); btn.disabled = true;
@@ -215,28 +218,28 @@ async function analyze() {
   } catch (err) { area.innerHTML = '<div class="error-card">' + err.message + '</div>'; }
   btn.disabled = false;
 }
-
+ 
 async function sendChat() {
   if (currentLevel !== 'pro' && freeQuestionsLeft <= 0) return;
   const input = document.getElementById('chat-input');
   const text = input.value.trim(); if (!text) return;
   input.value = '';
   document.getElementById('send-btn').disabled = true;
-
+ 
   addMsg(text, 'user');
   chatHistory.push({ role: 'user', content: text });
-
+ 
   if (currentLevel === 'free') {
     freeQuestionsLeft--;
     localStorage.setItem('freeQ', freeQuestionsLeft);
     updateQuestionsUI();
   }
-
+ 
   const messages = document.getElementById('chat-messages');
   const typing = document.createElement('div');
   typing.className = 'msg kristin'; typing.id = 'typing'; typing.textContent = '...';
   messages.appendChild(typing); messages.scrollTop = messages.scrollHeight;
-
+ 
   try {
     const resp = await fetch('/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ history: chatHistory, level: currentLevel }) });
     const data = await resp.json();
@@ -251,14 +254,14 @@ async function sendChat() {
   document.getElementById('send-btn').disabled = false;
   updateQuestionsUI();
 }
-
+ 
 function addMsg(text, type) {
   const messages = document.getElementById('chat-messages');
   const div = document.createElement('div');
   div.className = 'msg ' + type; div.textContent = text;
   messages.appendChild(div); messages.scrollTop = messages.scrollHeight;
 }
-
+ 
 function renderResult(d) {
   let html = '<div class="result-card"><div class="result-title">Stemning <span style="font-size:12px;color:#534AB7;background:#EEEDFE;padding:2px 8px;border-radius:6px;margin-left:4px;font-weight:400">' + (d.mood || '') + '</span></div><div class="result-title" style="margin-top:12px">Tips til deg</div>';
   (d.tips || []).forEach(t => { html += '<div class="tip-item"><div class="tip-dot"></div><div class="tip-text">' + t + '</div></div>'; });
